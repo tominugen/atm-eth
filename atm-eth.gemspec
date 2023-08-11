@@ -37,8 +37,4 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency "digest", "~> 1.0"
   spec.add_runtime_dependency 'digest-keccak'
 
-  # Uncomment to register a new dependency of your gem
-  # spec.add_dependency "example-gem", "~> 1.0"
-
-  # ...
 end

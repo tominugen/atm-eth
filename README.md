@@ -9,30 +9,35 @@ If bundler is not being used to manage dependencies, install the gem by executin
     $ gem install atm-eth-0.1.0.gem
 
 ## Usage
+    
+    $ bundle exec rails console
 
-<code>
-require 'atm/eth'
-# Initialize the Ethereum instance
-ethereum = AtmEth::Ethereum.new('https://your-ethereum-provider-url.com')
-# Generate a new wallet
-wallet = ethereum.generate_wallet
-puts "Generated Wallet:"
-puts "Address: #{wallet[:address]}"
-puts "Private Key: #{wallet[:private_key]}"
-# Get balance of an Ethereum address
-address = '0xYourEthereumAddress'
-balance = ethereum.get_balance(address)
-puts "Balance of #{address}: #{balance} ETH"
-# Send transaction from wallet
-sender_wallet = ethereum.generate_wallet
-receiver_address = '0xReceiverAddress'
-value_in_wei = 10000000000000000  # Value in wei (0.01 ETH)
-transaction_hash = ethereum.send_transaction_from_wallet(sender_wallet, receiver_address, value_in_wei)
-puts "Transaction Hash: #{transaction_hash}"
-# Get transaction status
-status = ethereum.get_transaction_status(transaction_hash)
-puts "Transaction Status: #{status}"
-</code>
+    require 'atm/eth'
+
+    # Initialize the Ethereum instance
+    ethereum = AtmEth::Ethereum.new('https://your-ethereum-provider-url.com')
+
+    # Generate a new wallet
+    wallet = ethereum.generate_wallet
+    puts "Generated Wallet:"
+    puts "Address: #{wallet[:address]}"
+    puts "Private Key: #{wallet[:private_key]}"
+
+    # Get balance of an Ethereum address
+    address = '0xYourEthereumAddress'
+    balance = ethereum.get_balance(address)
+    puts "Balance of #{address}: #{balance} ETH"
+
+    # Send transaction from wallet
+    sender_wallet = ethereum.generate_wallet
+    receiver_address = '0xReceiverAddress'
+    value_in_wei = 10000000000000000  # Value in wei (0.01 ETH)
+    transaction_hash = ethereum.send_transaction_from_wallet(sender_wallet, receiver_address, value_in_wei)
+    puts "Transaction Hash: #{transaction_hash}"
+
+    # Get transaction status
+    status = ethereum.get_transaction_status(transaction_hash)
+    puts "Transaction Status: #{status}" 
 
 ## Development
 
